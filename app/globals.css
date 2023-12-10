@@ -2,26 +2,49 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+html {
+	scroll-behavior: smooth;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+.home-border-one {
+	background: linear-gradient(to bottom, rgb(14 165 233), rgb(139, 92, 246));
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+.home-border-two {
+	background: linear-gradient(to right, rgb(139, 92, 246), rgb(236, 72, 153));
+}
+
+.aboutus-border-one {
+	background: linear-gradient(to bottom, rgb(236, 72, 153), rgb(181, 11, 224));
+}
+
+.aboutus-border-two {
+	background: linear-gradient(to left, rgb(181, 11, 224), rgb(72, 236, 176));
+}
+
+.faq-border-one {
+	background: linear-gradient(to bottom, rgb(72, 236, 176), rgb(110, 236, 72));
+}
+
+.faq-border-two {
+	background: linear-gradient(to right, rgb(110, 236, 72), rgb(135, 236, 72));
+}
+
+.best-games {
+	background: linear-gradient(to right, #f59802, #f5ed02);
+}
+.nice-games {
+	background: linear-gradient(to right, #21a89f, #0bcef9);
+}
+.good-games {
+	background: linear-gradient(to right, #74fa5f, #25b80f);
+}
+.medium-games {
+	background: linear-gradient(to right, #d8931c, #a06307);
+}
+.worst-games {
+	background: linear-gradient(to right, #f50202, #fa5f5f);
+}
+.toggle-review {
+	opacity: 0;
 }

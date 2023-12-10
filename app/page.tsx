@@ -1,113 +1,123 @@
-import Image from 'next/image'
+'use client';
+
+import { useCountUp } from 'react-countup';
+import { motion } from 'framer-motion';
+import Image from 'next/image';
+import Link from 'next/link';
+import { Button } from '@/components/ui/button';
+import { FaqAccordionShort } from '@/components/index';
+import { useRouter } from 'next/navigation';
 
 export default function Home() {
-  return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div className="z-10 max-w-5xl w-full items-center justify-between font-mono text-sm lg:flex">
-        <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-          Get started by editing&nbsp;
-          <code className="font-mono font-bold">app/page.tsx</code>
-        </p>
-        <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:h-auto lg:w-auto lg:bg-none">
-          <a
-            className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{' '}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className="dark:invert"
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
-        </div>
-      </div>
+	useCountUp({ ref: 'first-counter', end: 20, duration: 5, prefix: '+', suffix: 'K' });
+	useCountUp({ ref: 'second-counter', end: 10, duration: 3, suffix: 'M' });
+	useCountUp({ ref: 'third-counter', end: 126000, prefix: '+', duration: 5 });
+	const router = useRouter();
 
-      <div className="relative flex place-items-center before:absolute before:h-[300px] before:w-[480px] before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-[240px] after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700 before:dark:opacity-10 after:dark:from-sky-900 after:dark:via-[#0141ff] after:dark:opacity-40 before:lg:h-[360px] z-[-1]">
-        <Image
-          className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
-
-      <div className="mb-32 grid text-center lg:max-w-5xl lg:w-full lg:mb-0 lg:grid-cols-4 lg:text-left">
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Docs{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Learn{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Learn about Next.js in an interactive course with&nbsp;quizzes!
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Templates{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Explore the Next.js 13 playground.
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Deploy{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
-  )
+	return (
+		<main>
+			<div className="max-w-7xl mx-auto">
+				<section className="relative px-8 pb-8">
+					<motion.h3 className="text-base lg:text-lg mb-2" initial={{ x: -50, opacity: 0 }} whileInView={{ x: 0, opacity: 0.8 }} transition={{ duration: 1 }} viewport={{ once: true }}>
+						#home
+					</motion.h3>
+					<motion.h1 className="font-extrabold text-4xl lg:text-6xl mb-4" initial={{ x: -50, opacity: 0 }} whileInView={{ x: 0, opacity: 1 }} transition={{ duration: 1 }} viewport={{ once: true }}>
+						Web<span className="text-sky-500">game</span>
+					</motion.h1>
+					<motion.p className="max-w-4xl opacity-80 leading-9 mb-12" initial={{ x: -50, opacity: 0 }} whileInView={{ x: 0, opacity: 1 }} transition={{ duration: 1 }} viewport={{ once: true }}>
+						Welcome to our exciting game website! Here, gaming enthusiasts of all ages and interests can immerse themselves in a world of endless entertainment. With a vast array of genres, from action-packed adventures to brain-teasing puzzles,
+						our platform offers something for everyone. Whether you're a seasoned gamer looking for a new challenge or a casual player looking to unwind, you'll find a treasure trove of games to explore. Join our vibrant gaming community and
+						embark on epic journeys, compete with friends, and discover your next favorite game – all on our game website!
+					</motion.p>
+					<motion.section initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} transition={{ duration: 1 }} className="flex items-center flex-wrap gap-12 text-center" viewport={{ once: true }}>
+						<div>
+							<span id="first-counter" className="font-bold text-2xl lg:text-3xl" />
+							<h3>Total Games</h3>
+						</div>
+						<div>
+							<span id="second-counter" className="font-bold text-2xl lg:text-3xl" />
+							<h3>Users</h3>
+						</div>
+						<div>
+							<span id="third-counter" className="font-bold text-2xl lg:text-3xl" />
+							<h3>Reviews</h3>
+						</div>
+					</motion.section>
+					<motion.div initial={{ scaleY: 0 }} whileInView={{ scaleY: 1, originY: 'top' }} transition={{ duration: 0.5 }} className="absolute w-1.5 h-full top-0 left-0 home-border-one" />
+					<motion.div initial={{ scaleX: 0 }} whileInView={{ scaleX: 1, originX: 'left' }} transition={{ duration: 0.5, delay: 0.5 }} className="absolute w-full h-1.5 bottom-0 left-0 home-border-two" />
+				</section>
+				{/* about us */}
+				<motion.section className="relative flex flex-col items-end p-8 bg-pink-500 bg-opacity-5" initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} transition={{ duration: 2 }} viewport={{ once: true }}>
+					<motion.h3 className="lg:text-lg mb-2" initial={{ x: 50, opacity: 0 }} whileInView={{ x: 0, opacity: 0.8 }} transition={{ duration: 1 }} viewport={{ once: true }}>
+						#about-us
+					</motion.h3>
+					<motion.h2 className="font-extrabold text-3xl lg:text-4xl text-right mb-4" initial={{ x: 50, opacity: 0 }} whileInView={{ x: 0, opacity: 1 }} transition={{ duration: 1 }} viewport={{ once: true }}>
+						<span className="text-pink-500">Something</span> About Us
+					</motion.h2>
+					<motion.p className="max-w-4xl opacity-80 leading-9 mb-6 text-right" initial={{ x: 50, opacity: 0 }} whileInView={{ x: 0, opacity: 1 }} transition={{ duration: 1 }} viewport={{ once: true }}>
+						At "Section About Us," we take pride in our commitment to providing top-notch gaming experiences. Our dedicated team of enthusiasts works tirelessly to curate a diverse selection of games and ensure a seamless user experience. We're
+						passionate about gaming, and we're here to make your journey through our website an unforgettable one.
+					</motion.p>
+					<div className="max-w-4xl grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6 mb-6">
+						<Link href="/games/fortnite">
+							<Image src="/fornite.jpg" alt="fortnite image" width={600} height={600} className="w-full h-full object-cover object-center rounded-2xl cursor-pointer opacity-100 dark:opacity-70 dark:hover:opacity-100 duration-200" />
+						</Link>
+						<Link href="/games/god-of-war">
+							<Image src="/god-of-war.jpg" alt="god of war image" width={600} height={600} className=" w-full h-full object-cover object-center rounded-2xl cursor-pointer opacity-100 dark:opacity-70 dark:hover:opacity-100 duration-200" />
+						</Link>
+						<Link href="/games/nfs-most-wanted-2012">
+							<Image
+								src="/most-wanted-2012.webp"
+								alt="nfs most wanted 2012 image"
+								width={600}
+								height={600}
+								className=" w-full h-full object-cover object-center rounded-2xl cursor-pointer opacity-100 dark:opacity-70 dark:hover:opacity-100 duration-200"
+							/>
+						</Link>
+						<Link href="/games/cyberpunk-2077">
+							<Image src="/cyberpunk.jpg" alt="cyberpunk image" width={600} height={600} className="w-full h-full object-cover object-center rounded-2xl cursor-pointer opacity-100 dark:opacity-70 dark:hover:opacity-100 duration-200" />
+						</Link>
+					</div>
+					<Button className="bg-pink-500 hover:bg-pink-700" onClick={() => router.push('/games')}>
+						Go To Games Page
+					</Button>
+					<motion.p className="max-w-4xl opacity-80 leading-9 my-6 text-right" initial={{ x: 50, opacity: 0 }} whileInView={{ x: 0, opacity: 1 }} transition={{ duration: 1 }} viewport={{ once: true }}>
+						Explore our blog forum for in-depth articles, news, and insights into the gaming world. Our expert bloggers provide valuable information, game reviews, and industry updates, making it the perfect place to stay informed and engaged in
+						the gaming universe. Join the discussion and keep your gaming knowledge up-to-date through our blog forum.
+					</motion.p>
+					<Button className="bg-pink-500 hover:bg-pink-700" onClick={() => router.push('/blog')}>
+						Check Blog
+					</Button>
+					<motion.div initial={{ scaleY: 0 }} whileInView={{ scaleY: 1, originY: 'top' }} transition={{ duration: 0.5 }} className="absolute w-1.5 h-full top-0 right-0 aboutus-border-one" />
+					<motion.div initial={{ scaleX: 0 }} whileInView={{ scaleX: 1, originX: 'right' }} transition={{ duration: 0.5, delay: 0.5 }} className="absolute w-full h-1.5 bottom-0 right-0 aboutus-border-two" />
+				</motion.section>
+				{/* faq & contact */}
+				<motion.section className="relative p-8 bg-green-500 bg-opacity-5" initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} transition={{ duration: 2 }} viewport={{ once: true }}>
+					<motion.h3 className="lg:text-lg mb-2" initial={{ x: -50, opacity: 0 }} whileInView={{ x: 0, opacity: 0.8 }} transition={{ duration: 1 }} viewport={{ once: true }}>
+						#faq #contact
+					</motion.h3>
+					<motion.h2 className="font-extrabold text-3xl lg:text-4xl mb-4" initial={{ x: -50, opacity: 0 }} whileInView={{ x: 0, opacity: 1 }} transition={{ duration: 1 }} viewport={{ once: true }}>
+						<span className="text-green-500">Most Frequently</span> Asked Questions & Contact
+					</motion.h2>
+					<motion.p className="max-w-4xl opacity-80 leading-9 mb-6" initial={{ x: -50, opacity: 0 }} whileInView={{ x: 0, opacity: 1 }} transition={{ duration: 1 }} viewport={{ once: true }}>
+						Our FAQ section is your go-to resource for quick answers to common questions, while our Contact section is the gateway to reach out to our support team for any specific inquiries or assistance you may need. We're here to help and
+						provide you with the information you're looking for.
+					</motion.p>
+					<FaqAccordionShort />
+					<Button className="bg-green-500 hover:bg-green-700" onClick={() => router.push('/faq')}>
+						Show More Faq Questions
+					</Button>
+					<motion.p className="max-w-4xl opacity-80 leading-9 my-6" initial={{ x: -50, opacity: 0 }} whileInView={{ x: 0, opacity: 1 }} transition={{ duration: 1 }} viewport={{ once: true }}>
+						In our Contact section, you'll find an easy way to reach out to our dedicated support team. Whether you have technical issues, feedback, or any other inquiries, we're here to assist you promptly and ensure your gaming experience is
+						smooth and enjoyable.
+					</motion.p>
+					<Button className="bg-green-500 hover:bg-green-700" onClick={() => router.push('/contact')}>
+						Contact Me
+					</Button>
+					<motion.div initial={{ scaleY: 0 }} whileInView={{ scaleY: 1, originY: 'top' }} transition={{ duration: 0.5 }} className="absolute w-1.5 h-full top-0 left-0 faq-border-one" />
+					<motion.div initial={{ scaleX: 0 }} whileInView={{ scaleX: 1, originX: 'left' }} transition={{ duration: 0.5, delay: 0.5 }} className="absolute w-full h-1.5 bottom-0 left-0 faq-border-two" />
+				</motion.section>
+			</div>
+		</main>
+	);
 }
